@@ -1,0 +1,24 @@
+{
+    "name": "vyuha",
+    "description": "( व्यूह ) — Library to create, validate 🔭 and capture 📂 filesystem structure.",
+    "version": "0.0.0",
+    "license": "UNLICENSED",
+    "bin": "",
+    "main": "",
+    "type": "module",
+    "homepage": "https://github.com/nirvahaka/vyuha#readme",
+    "bugs": "https://github.com/nirvahaka/vyuha/issues",
+    "author": {
+        "name": "Vasanth Developer",
+        "email": "vasanth@vasanthdeveloper.com",
+        "url": "https://vsnth.dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nirvahaka/vyuha.git"
+    },
+    "scripts": {},
+    "keywords": [],
+    "dependencies": {},
+    "devDependencies": {}
+}
