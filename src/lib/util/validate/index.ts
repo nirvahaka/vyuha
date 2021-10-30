@@ -3,6 +3,8 @@
  *  Created On 25 October 2021
  */
 
-export default async (dir: string, structure: any) => {
+import { VyuhaImpl } from './interface.js'
+
+export default async (vyuha: VyuhaImpl) => {
     //
 }

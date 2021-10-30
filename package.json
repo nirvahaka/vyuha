@@ -23,6 +23,7 @@
     },
     "keywords": [],
     "dependencies": {
+        "@vsnthdev/utilities-node": "^2.0.1",
         "joi": "^17.4.2"
     },
     "devDependencies": {
