@@ -1,6 +1,6 @@
 {
     "name": "vyuha",
-    "description": "( व्यूह ) — Library to create, validate 🔭 and capture 📂 filesystem structure.",
+    "description": "( व्यूह ) — Library to create, 🔭 validate and capture 📂 filesystem structure.",
     "version": "0.0.0",
     "license": "UNLICENSED",
     "bin": "src/exe/index.js",
@@ -24,6 +24,10 @@
     "keywords": [],
     "dependencies": {
         "@vsnthdev/utilities-node": "^2.0.1",
+        "chalk": "^4.1.2",
+        "commander": "^8.3.0",
+        "es-dirname": "^0.1.0",
+        "itivrutaha": "^2.0.11",
         "joi": "^17.4.2"
     },
     "devDependencies": {
