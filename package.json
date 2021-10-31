@@ -18,7 +18,7 @@
         "url": "https://github.com/nirvahaka/vyuha.git"
     },
     "scripts": {
-        "build": "rimraf ./dist && tsc",
+        "build": "rimraf ./dist && tsc --incremental false",
         "dev": "tsc -w"
     },
     "keywords": [],
@@ -28,7 +28,8 @@
         "commander": "^8.3.0",
         "es-dirname": "^0.1.0",
         "itivrutaha": "^2.0.11",
-        "joi": "^17.4.2"
+        "joi": "^17.4.2",
+        "mkdirp": "^1.0.4"
     },
     "devDependencies": {
         "@babel/core": "^7.15.8",

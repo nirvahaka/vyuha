@@ -4,19 +4,33 @@
  *  Created On 25 October 2021
  */
 
-import { promise } from '@vsnthdev/utilities-node'
+import mkdirp from 'mkdirp'
+import path from 'path'
 
+import validate from '../../util/validate/index.js'
 import { VyuhaImpl } from '../../util/validate/interface.js'
-import schema from '../../util/validate/schema.js'
 
-export default async (vyuha: VyuhaImpl[], dir: string): Promise<void> => {
-    // validate the schema
-    const { returned, err } = await promise.handle(schema.validateAsync(vyuha))
+const loop = async (node: VyuhaImpl, dir: string) => {
+    if (node.type == 'directory') {
+        // create this directory
+        await mkdirp(path.join(dir, node.name))
 
-    console.log({
-        err,
-        returned,
-    })
+        // recurse more!
+        if (node.children)
+            for (const n of node.children)
+                await loop(n, path.join(dir, node.name))
+    } else {
+        throw new Error('This feature will be implemented in a future version.')
+    }
+}
 
-    // create the files & directories
+export const create = async (
+    vyuha: VyuhaImpl[],
+    dir: string,
+): Promise<void> => {
+    // validate the vyuha file
+    vyuha = await validate(vyuha)
+
+    // create the directory structure
+    for (const node of vyuha) await loop(node, dir)
 }

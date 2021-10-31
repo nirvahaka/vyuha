@@ -3,14 +3,26 @@
  *  structure on the filesystem.
  *  Created On 25 October 2021
  */
-import { promise } from '@vsnthdev/utilities-node';
-import schema from '../../util/validate/schema.js';
-export default async (vyuha, dir) => {
-    // validate the schema
-    const { returned, err } = await promise.handle(schema.validateAsync(vyuha));
-    console.log({
-        err,
-        returned,
-    });
-    // create the files & directories
+import mkdirp from 'mkdirp';
+import path from 'path';
+import validate from '../../util/validate/index.js';
+const loop = async (node, dir) => {
+    if (node.type == 'directory') {
+        // create this directory
+        await mkdirp(path.join(dir, node.name));
+        // recurse more!
+        if (node.children)
+            for (const n of node.children)
+                await loop(n, path.join(dir, node.name));
+    }
+    else {
+        throw new Error('This feature will be implemented in a future version.');
+    }
+};
+export const create = async (vyuha, dir) => {
+    // validate the vyuha file
+    vyuha = await validate(vyuha);
+    // create the directory structure
+    for (const node of vyuha)
+        await loop(node, dir);
 };
