@@ -4,6 +4,7 @@
  *  Created On 25 October 2021
  */
 
+import fs from 'fs/promises'
 import mkdirp from 'mkdirp'
 import path from 'path'
 
@@ -20,7 +21,9 @@ const loop = async (node: VyuhaImpl, dir: string) => {
             for (const n of node.children)
                 await loop(n, path.join(dir, node.name))
     } else {
-        throw new Error('This feature will be implemented in a future version.')
+        // write the file and it's contents
+        const content = node.content || ''
+        await fs.writeFile(path.join(dir, node.name), content)
     }
 }
 

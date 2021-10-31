@@ -17,9 +17,6 @@ const validateRecursively = async (node) => {
             for (const n of node.children)
                 await validateRecursively(n);
     }
-    else {
-        throw new Error('This feature will be implemented in a future version.');
-    }
 };
 export default async (vyuha) => {
     for (const node of vyuha)

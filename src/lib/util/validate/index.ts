@@ -18,8 +18,6 @@ const validateRecursively = async (node: VyuhaImpl) => {
     if (node.type == 'directory') {
         if (node.children)
             for (const n of node.children) await validateRecursively(n)
-    } else {
-        throw new Error('This feature will be implemented in a future version.')
     }
 }
 

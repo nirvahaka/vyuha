@@ -3,6 +3,7 @@
  *  structure on the filesystem.
  *  Created On 25 October 2021
  */
+import fs from 'fs/promises';
 import mkdirp from 'mkdirp';
 import path from 'path';
 import validate from '../../util/validate/index.js';
@@ -16,7 +17,9 @@ const loop = async (node, dir) => {
                 await loop(n, path.join(dir, node.name));
     }
     else {
-        throw new Error('This feature will be implemented in a future version.');
+        // write the file and it's contents
+        const content = node.content || '';
+        await fs.writeFile(path.join(dir, node.name), content);
     }
 };
 export const create = async (vyuha, dir) => {
