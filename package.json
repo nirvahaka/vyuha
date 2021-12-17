@@ -1,7 +1,7 @@
 {
     "name": "vyuha",
     "description": "( व्यूह ) — Library to create, 🔭 validate and capture 📂 filesystem structure.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "UNLICENSED",
     "bin": "src/exe/index.js",
     "main": "dist/index.js",
