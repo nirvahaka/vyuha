@@ -17,6 +17,9 @@
         "type": "git",
         "url": "https://github.com/nirvahaka/vyuha.git"
     },
+    "engines": {
+        "node": ">=17.8.0"
+    },
     "scripts": {
         "build": "rimraf ./dist && tsc --incremental false",
         "dev": "tsc -w"
